@@ -1,8 +1,12 @@
 // Extensions pages can all have access to the bacground page.
-var bkg = chrome.extension.getBackgroundPage();
+var bkg = null;
 
-// When the DOM is loaded, make sure all the saved info is restored.
-window.addEventListener('load', onLoad, false);
+function onBgPage(v) {
+  if (v) bkg = v;
+  onLoad();
+}
+
+chrome.runtime.getBackgroundPage(onBgPage);
 
 var dialog = null;
 
