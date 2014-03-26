@@ -12,7 +12,6 @@
       "32": "img/icon32.png",
       "48": "img/icon48.png"
    },
-   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC7sloDw8gSzpiXRYXJUGlfI3bE6fXu8c61e8z7XLMZnaMoOler1wLwdQ7taZ6pBn3eQzNqdkf3nLsnqLKTmLfxNS67wxcNAS0CsQNIPJAHgZFyszFwF8chMnLQulHSxR0npsRK4POoKq0RhdC0Amg7PlUeJX6wayQAXFg6rRUBjwIDAQAB",
    "minimum_chrome_version": "13",
    "name": "Proxy Anywhere",
    "options_page": "options.html",
