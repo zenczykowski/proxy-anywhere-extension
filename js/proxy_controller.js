@@ -123,3 +123,6 @@ ProxyController.prototype.setProxyEnabled = function (status_)
   chrome.browserAction.setIcon({ path: this.proxyStatus ? ProxyController.ONLINE_ICON : ProxyController.OFFLINE_ICON });
   chrome.browserAction.setTitle({ title: this.proxyStatus ? 'Online' : 'Offline' });
 };
+
+var proxyController = new ProxyController();
+proxyController.init();
