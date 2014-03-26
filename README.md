@@ -28,5 +28,5 @@ Enjoy! Please submit your pull requests if you have anything interesting!
 
 Screenshots
 -----------------
-![Screenshot of the Chrome Extension](https://github.com/mohamedmansour/proxy-anywhere-extension/raw/master/screenshot/proxy_screenshot.png)
-![Screenshot of the Chrome Extension](https://github.com/mohamedmansour/proxy-anywhere-extension/raw/master/screenshot/proxy_screenshot_bypass.png)
+![Screenshot of the Chrome Extension](https://github.com/zenczykowski/proxy-anywhere-extension/raw/master/screenshot/proxy_screenshot.png)
+![Screenshot of the Chrome Extension](https://github.com/zenczykowski/proxy-anywhere-extension/raw/master/screenshot/proxy_screenshot_bypass.png)
