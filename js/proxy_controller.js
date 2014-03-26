@@ -58,10 +58,7 @@ ProxyController.prototype.init = function()
 {
   // Synchronously retrieve the current extension version.
   var version = 'NaN';
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', chrome.extension.getURL('manifest.json'), false);
-  xhr.send(null);
-  var manifest = JSON.parse(xhr.responseText);
+  var manifest = chrome.runtime.getManifest();
   var currVersion = manifest.version;
   var prevVersion = settings.version;
 
