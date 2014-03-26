@@ -15,6 +15,7 @@ var dialog = null;
  */
 function onLoad() {
   onRestore();
+  $('the-form').addEventListener('submit', onSubmit, false);
   $('button-save').addEventListener('click', onSave, false);
   $('button-close').addEventListener('click', onClose, false);
   $('bypass-list-add').addEventListener('click', onBypassListAdd, false);
@@ -26,6 +27,15 @@ function onLoad() {
   dialog.addEventListener('load', onDialogLoad);
   dialog.setTemplate({header: 'Bypass URL', ok: 'Add'});
   dialog.init();
+}
+
+/**
+ *  When the form is submitted;
+ */
+function onSubmit(evt) {
+  console.log('onSubmit(), bkg is = ' + bkg + '.');
+
+  evt.preventDefault();
 }
 
 /**
