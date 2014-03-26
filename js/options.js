@@ -16,7 +16,7 @@ function onLoad() {
   $('bypass-list-add').addEventListener('click', onBypassListAdd, false);
   $('bypass-list-remove').addEventListener('click', onBypassListRemove, false);
   $('bypass-list-remove-all').addEventListener('click', onBypassListRemoveAll, false);
-  
+
   dialog = new DialogController('add-bypass-dialog');
   dialog.addEventListener('click', onDialogOk);
   dialog.addEventListener('load', onDialogLoad);
@@ -42,7 +42,7 @@ function onSave() {
   bkg.settings.opt_out = $('opt_out').checked;
   bkg.settings.autostart = $('autostart').checked;
   bkg.settings.incognito = $('incognito').checked;
-  
+
   // Restore bypass list.
   var bypassList = [];
   var list = $('bypass_list');
@@ -50,12 +50,12 @@ function onSave() {
     bypassList.push(list[i].value);
   }
   bkg.settings.bypass = bypassList;
-  
+
   // Check if the status of the proxy server is online, if so, refresh it.
   if (bkg.proxyController.isProxyActive()) {
     bkg.proxyController.setProxyEnabled(true);
   }
-  
+
   // Update status to let user know options were saved.
   var info = $('info-message');
   info.style.display = 'inline';
@@ -77,7 +77,7 @@ function onRestore() {
   $('scheme').value = bkg.settings.scheme;
   $('autostart').checked = bkg.settings.autostart;
   $('incognito').checked = bkg.settings.incognito;
-  
+
   // Restore bypass list.
   var bypassList = bkg.settings.bypass;
   var list = $('bypass_list');

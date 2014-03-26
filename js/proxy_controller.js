@@ -7,7 +7,7 @@ ProxyController = function()
 {
   // Global status that states if the custom proxy is set.
   this.proxyStatus = false;
-  
+
   // Listen on Browser Action clicks.
   chrome.browserAction.onClicked.addListener(this.onBrowserActionClicked.bind(this));
 
@@ -24,7 +24,7 @@ ProxyController.ERROR_ICON = '/img/error.png';
  *
  * @returns {boolean} true is custom proxy is set and active.
  */
-ProxyController.prototype.isProxyActive = function() 
+ProxyController.prototype.isProxyActive = function()
 {
   return this.proxyStatus;
 };
@@ -64,7 +64,7 @@ ProxyController.prototype.init = function()
   var manifest = JSON.parse(xhr.responseText);
   var currVersion = manifest.version;
   var prevVersion = settings.version;
-  
+
   // Check if the extension has been just updated or installed.
   if (currVersion != prevVersion) {
     if (typeof prevVersion == 'undefined') {
@@ -72,11 +72,11 @@ ProxyController.prototype.init = function()
       chrome.tabs.create({url: 'options.html'});
     }
     else {
-      // onUpdate: Do nothing now. 
-    }  
+      // onUpdate: Do nothing now.
+    }
     settings.version = currVersion;
   }
-  
+
   // Check if the autostart setting is enabled, if it is, automatically start
   // our custom proxy server.
   this.setProxyEnabled(settings.autostart);
@@ -91,7 +91,7 @@ ProxyController.prototype.init = function()
 ProxyController.prototype.setProxyEnabled = function (status_)
 {
   this.proxyStatus = status_;
-  
+
   // An object encapsulating a complete proxy configuration.
   var config = {
     mode: this.proxyStatus ? 'fixed_servers' : 'auto_detect',
@@ -104,20 +104,20 @@ ProxyController.prototype.setProxyEnabled = function (status_)
       bypassList: settings.bypass
     }
   };
-  
+
   // Describes the current proxy setting being used.
   var proxySettings = {
     'value': config,
     'scope': settings.incognito ? 'incognito_persistent' : 'regular'
   };
-  
+
   // Change the icon to reflect the current status of the proxy server.
-  var icon = 
-  
+  var icon =
+
   // Clear settings for both windows.
   chrome.proxy.settings.clear({scope : 'incognito_persistent'});
   chrome.proxy.settings.clear({scope : 'regular'});
-  
+
   // Setup new settings for the appropriate window.
   chrome.proxy.settings.set(proxySettings, function() {});
   chrome.browserAction.setIcon({ path: this.proxyStatus ? ProxyController.ONLINE_ICON : ProxyController.OFFLINE_ICON });

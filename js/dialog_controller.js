@@ -1,6 +1,6 @@
 /**
  * Generic Dialog Controller.
- * 
+ *
  * Currently supports Chrome Like design and keyboard friendly shortcuts.
  *
  * @abstract
@@ -42,7 +42,7 @@ DialogController.prototype.setTemplate = function (tpl)
 /**
  * Initializes the dialog by creating the DOM.
  */
-DialogController.prototype.init = function() 
+DialogController.prototype.init = function()
 {
   this.dialog = this.createDOM($(this.id));
   this.dialog.style.display = 'none';
@@ -54,7 +54,7 @@ DialogController.prototype.init = function()
  *       clck: When the Cancel or OK button has been clicked.
  *       load: When the dialog has been loaded.
  */
-DialogController.prototype.addEventListener = function (event, callback) 
+DialogController.prototype.addEventListener = function (event, callback)
 {
   switch (event) {
     case 'destroy':
@@ -79,25 +79,25 @@ DialogController.prototype.createDOM = function (dom)
   var actionArea = createElement('div', {'class': 'action-area'});
   var buttonOk = createElement('button', {'id': 'dialog-ok', 'html': this.okText});
   var buttonCancel = createElement('button', {'id': 'dialog-cancel', 'html': this.cancelText});
-  
+
   dialog.appendChild(page);
   page.appendChild(header);
   page.appendChild(contentArea);
   page.appendChild(actionArea);
   actionArea.appendChild(buttonOk);
   actionArea.appendChild(buttonCancel);
-  
+
   // Listeners.
   buttonOk.addEventListener('click', this.onOk.bind(this), false);
   buttonCancel.addEventListener('click', this.onCancel.bind(this), false);
-  
+
   // Lazy-load.
   var parent = dom.parentNode;
   parent.removeChild(dom);
   contentArea.innerHTML = dom.innerHTML;
   delete dom;
   parent.appendChild(dialog);
-  
+
   return dialog;
 };
 
@@ -138,7 +138,7 @@ DialogController.prototype.onCancel = function ()
 /**
  * Sets the visibility of the Dialog to |v| and set necessary components.
  */
-DialogController.prototype.setVisible = function (v) 
+DialogController.prototype.setVisible = function (v)
 {
   this.dialog.style.display = v ? '-webkit-box' : 'none';
   if (v) {
