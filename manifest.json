@@ -12,7 +12,7 @@
       "32": "img/icon32.png",
       "48": "img/icon48.png"
    },
-   "minimum_chrome_version": "13",
+   "minimum_chrome_version": "18",
    "name": "Proxy Anywhere",
    "options_page": "options.html",
    "permissions": [ "proxy" ],
