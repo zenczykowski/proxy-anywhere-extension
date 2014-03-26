@@ -37,6 +37,10 @@ ProxyController.prototype.isProxyActive = function()
  */
 ProxyController.prototype.onBrowserActionClicked = function(tab)
 {
+  if (this.tm) {
+    clearTimeout(this.tm);
+    this.tm = null;
+  };
   this.setProxyEnabled(!this.proxyStatus);
 };
 
@@ -47,8 +51,19 @@ ProxyController.prototype.onBrowserActionClicked = function(tab)
  */
 ProxyController.prototype.onProxyError = function(details)
 {
+  if (this.tm) {
+    clearTimeout(this.tm);
+    this.tm = null;
+  };
+
   chrome.browserAction.setIcon({ path: ProxyController.ERROR_ICON });
   chrome.browserAction.setTitle({title: details.error});
+
+  var _this = this;
+  this.tm = setTimeout(function(){
+    chrome.browserAction.setIcon({ path: _this.proxyStatus ? ProxyController.ONLINE_ICON : ProxyController.OFFLINE_ICON });
+    chrome.browserAction.setTitle({ title: _this.proxyStatus ? 'Online' : 'Offline' });
+  },9000);
 };
 
 /**
