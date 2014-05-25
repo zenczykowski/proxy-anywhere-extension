@@ -10,6 +10,9 @@ main() {
     echo "${h} ${b}"
   done \
   | sort
+
+  echo "To push:"
+  echo "git push zenczykowski/proxy-anywhere-extension HEAD:maze"
 }
 
 main "$@"; exit
