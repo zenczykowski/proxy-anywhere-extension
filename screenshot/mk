@@ -1,0 +1,6 @@
+#!/bin/bash
+scale_and_cut() {
+  pngtopnm | pamscale -width=1280 | pamcut -bottom=$[800-1] | pnmtopng
+}
+scale_and_cut < proxy_screenshot.png > proxy_screenshot_1280_800.png
+scale_and_cut < proxy_screenshot_bypass.png > proxy_screenshot_bypass_1280_800.png
