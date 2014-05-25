@@ -1,0 +1,15 @@
+#!/bin/bash
+main() {
+  git remote update --prune || exit
+
+  git gc --aggressive --prune=now || exit
+
+  git br -r \
+  | while read b; do
+    h=$(git rev-parse "${b}")
+    echo "${h} ${b}"
+  done \
+  | sort
+}
+
+main "$@"; exit
