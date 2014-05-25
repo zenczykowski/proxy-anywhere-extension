@@ -7,7 +7,7 @@ With a click of a button, you can switch to your custom proxy, or back to normal
 Download now!
 ----------------
 
-You can download it from the Gallery! (https://chrome.google.com/webstore/detail/eejcbegfnjfjnmdikkplhbhnemddchbn)
+You can download it from the Gallery! (https://chrome.google.com/webstore/detail/cfeknjlpekkmneffdgocfncbjnbfhkmm)
 
 
 How does it work?
